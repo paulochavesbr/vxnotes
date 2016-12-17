@@ -1,0 +1,25 @@
+# OS
+application.pid
+
+# gradle / Maven
+target/
+build/
+.gradle/
+
+# IDEA
+.idea/
+*.iml
+*.ipr
+atlassian-ide-plugin.xml
+
+# Eclipse
+.settings/
+.project
+.classpath
+
+# OSX
+.DS_Store
+/.nb-gradle/private/
+
+.vertx
+
