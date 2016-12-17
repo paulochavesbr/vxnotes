@@ -15,9 +15,9 @@ import io.vertx.ext.web.Router;
 import io.vertx.ext.web.handler.BodyHandler;
 import io.vertx.ext.web.handler.CorsHandler;
 
-public class Server extends AbstractVerticle {
+public class WebServer extends AbstractVerticle {
 
-	private static final Logger LOG = LoggerFactory.getLogger(Server.class);
+	private static final Logger LOG = LoggerFactory.getLogger(WebServer.class);
 	private static final String HOST = "0.0.0.0";
 	private static final int PORT = 8080;
 

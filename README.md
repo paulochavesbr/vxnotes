@@ -13,7 +13,7 @@ mvn clean package
 ## To run the app from the command line
 
 ```sh
-java -jar target/vxnotes-fat.jar -conf src/main/resources/config.json
+java -jar target/vxnotes-{version}-fat.jar -conf src/main/resources/config.json
 ```
 
 ## To run the app with redeploy from your IDE (Eclipse in my case)
@@ -23,5 +23,5 @@ java -jar target/vxnotes-fat.jar -conf src/main/resources/config.json
 3. On tab **Arguments** paste the following in the **Program arguments** text box and click **Apply**
 
 ```
-run io.github.paulochavesbr.vxnotes.Server -conf src/main/resources/config.json --redeploy="src/**/*.java" --launcher-class=io.vertx.core.Launcher
+run io.github.paulochavesbr.vxnotes.WebServer -conf src/main/resources/config.json --redeploy="src/**/*.java" --launcher-class=io.vertx.core.Launcher
 ```
