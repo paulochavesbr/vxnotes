@@ -41,7 +41,7 @@ public class MapNotesRepository implements NotesRepository {
 	}
 
 	@Override
-	public Future<Optional<Note>> findById() {
+	public Future<Optional<Note>> findById(String id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
