@@ -3,10 +3,13 @@ package io.github.paulochavesbr.vxnotes.controllers;
 import static io.github.paulochavesbr.vxnotes.Constants.CONTENT_TYPE;
 import static io.github.paulochavesbr.vxnotes.Constants.MIME_JSON;
 
+import io.vertx.ext.web.Router;
 import io.vertx.ext.web.RoutingContext;
 
 public abstract class Controller {
 
+	public abstract Router getRouter();
+	
 	protected void created(RoutingContext ctx, String content) {
 		ctx.response().setStatusCode(201).putHeader(CONTENT_TYPE, MIME_JSON).end(content);
 	}
