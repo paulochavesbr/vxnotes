@@ -1,0 +1,128 @@
+[
+	{
+		"_id":"111",
+		"title":"First Note",
+		"body":{"text":"The content of the first note"},
+		"color":"GREEN",
+		"archived":false,
+		"deleted":false,
+		"tags":["vertx","web"],
+		"createdAt":"2016-12-10T04:29:32.050Z",
+		"updatedAt":"2016-12-10T04:29:32.056Z"
+	},
+	{
+		"_id":"222",
+		"title":"Refactor class Main",
+		"body":{"text":null},
+		"color":"WHITE",
+		"archived":false,
+		"deleted":false,
+		"tags":[],
+		"createdAt":"2016-12-12T04:30:33.588Z",
+		"updatedAt":"2016-12-12T04:30:33.588Z"
+	},
+	{
+		"_id":"333",
+		"title":"Improve your analysis",
+		"body":{
+			"items":[
+				{"text":"Step 1","done":true},
+				{"text":"Step 2","done":true},
+				{"text":"Step 3","done":false},
+				{"text":"Step 4","done":false}
+			]
+		},
+		"color":"YELLOW",
+		"archived":false,
+		"deleted":false,
+		"tags":["vertx","checklist"],
+		"createdAt":"2016-12-15T04:34:19.954Z",
+		"updatedAt":"2016-12-15T04:34:19.954Z"
+	},
+	{
+		"_id":"444",
+		"title":"Be careful with performance",
+		"body":{
+			"items":[
+				{"text":"have an idea","done":false},
+				{"text":"do it!","done":false}
+			]
+		},
+		"color":"GRAY",
+		"archived":false,
+		"deleted":false,
+		"tags":["vertx"],
+		"createdAt":"2016-12-15T04:36:57.483Z",
+		"updatedAt":"2016-12-15T04:36:57.488Z"
+	},
+	{
+		"_id":"555",
+		"title":"Do the best you can",
+		"body":{
+			"items":[
+				{"text":"You're awesome","done":true}
+			]
+		},
+		"color":"GRAY",
+		"archived":false,
+		"deleted":false,
+		"tags":["java","web"],
+		"createdAt":"2016-12-17T04:36:57.483Z",
+		"updatedAt":"2016-12-17T04:36:57.488Z"
+	},
+	{
+		"_id":"666",
+		"title":"I love coding",
+		"body":{
+			"items":[
+				{"text":"have an idea","done":false},
+				{"text":"do it!","done":false}
+			]
+		},
+		"color":"GRAY",
+		"archived":false,
+		"deleted":false,
+		"tags":["web","java", "rest", "api"],
+		"createdAt":"2016-12-17T04:36:57.483Z",
+		"updatedAt":"2016-12-17T04:36:57.488Z"
+	},
+	{
+		"_id":"777",
+		"title":"Java 8 rocks",
+		"body":{"text":null},
+		"color":"GRAY",
+		"archived":false,
+		"deleted":false,
+		"tags":["rest","api", "web"],
+		"createdAt":"2016-12-17T04:36:57.483Z",
+		"updatedAt":"2016-12-17T04:36:57.488Z"
+	},
+	{
+		"_id":"888",
+		"title":"Having fun with Vert.x3",
+		"body":{
+			"items":[
+				{"text":"Vert.x3 Web","done":false},
+				{"text":"It's a toolkit","done":false},
+				{"text":"With great power comes great responsibility","done":false}
+			]
+		},
+		"color":"GRAY",
+		"archived":false,
+		"deleted":false,
+		"tags":["vertx","rest"],
+		"createdAt":"2016-12-17T04:36:57.483Z",
+		"updatedAt":"2016-12-17T04:36:57.488Z"
+	},
+	{
+		"_id":"999",
+		"title":"Build a great REST API",
+		"body":{"text":null},
+		"color":"GRAY",
+		"archived":false,
+		"deleted":false,
+		"tags":["vertx","toolkit"],
+		"createdAt":"2016-12-17T04:36:57.483Z",
+		"updatedAt":"2016-12-17T04:36:57.488Z"
+	}
+]
