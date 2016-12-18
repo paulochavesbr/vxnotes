@@ -25,3 +25,10 @@ java -jar target/vxnotes-{version}-fat.jar -conf src/main/resources/config.json
 ```
 run io.github.paulochavesbr.vxnotes.WebServer -conf src/main/resources/config.json --redeploy="src/**/*.java" --launcher-class=io.vertx.core.Launcher
 ```
+
+## To run integration tests
+```sh
+mvn integration-test -DskipTests=false -e
+```
+
+> `-e` shows stack trace in case of exception

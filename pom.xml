@@ -8,10 +8,12 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.build.outputDirectory>UTF-8</project.build.outputDirectory>
 		<java.version>1.8</java.version>
 		<skipTests>true</skipTests>
 		<vertx.version>3.3.3</vertx.version>
 		<slf4j.version>1.7.22</slf4j.version>
+		<mongodb.version>3.2.11</mongodb.version>
 		<main.verticle>io.github.paulochavesbr.vxnotes.WebServer</main.verticle>
 		<config.path>src/main/resources/config.json</config.path>
 	</properties>
@@ -63,6 +65,12 @@
 			<version>${vertx.version}</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>de.flapdoodle.embed</groupId>
+			<artifactId>de.flapdoodle.embed.mongo</artifactId>
+			<version>1.50.5</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -84,6 +92,29 @@
 				<configuration>
 					<skipTests>${skipTests}</skipTests>
 				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-failsafe-plugin</artifactId>
+				<version>2.19.1</version>
+				<configuration>
+					<encoding>${project.build.outputDirectory}</encoding>
+				</configuration>
+				<executions>
+					<execution>
+						<id>integration-test</id>
+						<goals>
+							<goal>integration-test</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>verify</id>
+						<goals>
+							<goal>verify</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 
 			<plugin>
@@ -151,6 +182,52 @@
 								<argument>-conf</argument>
 								<argument>${config.path}</argument>
 							</arguments>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>com.github.joelittlejohn.embedmongo</groupId>
+				<artifactId>embedmongo-maven-plugin</artifactId>
+				<version>0.3.4</version>
+				<executions>
+					<execution>
+						<id>start</id>
+						<goals>
+							<goal>start</goal>
+						</goals>
+						<configuration>
+							<port>37017</port>
+							<version>${mongodb.version}</version>
+							<storageEngine>wiredTiger</storageEngine>
+							<!-- <databaseDirectory>/tmp/test-vxnotes</databaseDirectory> <logFile>/var/log/test-vxnotes.log</logFile> -->
+						</configuration>
+					</execution>
+					<execution>
+						<id>stop</id>
+						<goals>
+							<goal>stop</goal>
+						</goals>
+					</execution>
+
+					<execution>
+						<id>mongo-import</id>
+						<goals>
+							<goal>mongo-import</goal>
+						</goals>
+						<configuration>
+							<version>${mongodb.version}</version>
+							<defaultImportDatabase>test</defaultImportDatabase>
+							<parallel>false</parallel>
+							<wait>false</wait>
+							<imports>
+								<import>
+									<database>test-vxnotes</database>
+									<collection>notes</collection>
+									<file>src/test/resources/import_notes.json</file>
+								</import>
+							</imports>
 						</configuration>
 					</execution>
 				</executions>

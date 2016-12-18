@@ -34,13 +34,13 @@ public class WebServer extends AbstractVerticle {
 	private static final int PORT = 8080;
 
 	private JsonObject config;
-	
+
 	@Override
 	public void init(Vertx vertx, Context context) {
 		super.init(vertx, context);
 		config = context.config();
 	}
-	
+
 	@Override
 	public void start(Future<Void> startFuture) throws Exception {
 		Router router = Router.router(vertx);
@@ -53,7 +53,7 @@ public class WebServer extends AbstractVerticle {
 		vertx.createHttpServer(options).requestHandler(router::accept).listen(config().getInteger("http.port", PORT),
 				result -> {
 					if (result.succeeded()) {
-						LOG.info("The server is listening on port {}", PORT);
+						LOG.info("The server is listening on port {}", config().getInteger("http.port", PORT));
 						startFuture.complete();
 					} else {
 						LOG.error("Failed to start the HTTP server", result.cause());
@@ -65,13 +65,13 @@ public class WebServer extends AbstractVerticle {
 	private MongoClient getMongoClient() {
 		return MongoClient.createShared(vertx, config().getJsonObject("mongo"));
 	}
-	
+
 	private void addRoutes(Router router) {
 		NotesRepository notesRepository;
 		if (config.getString("storage", "map").equals("map")) {
 			notesRepository = new MapNotesRepository(vertx);
 		} else {
-			MongoClient mongo = getMongoClient();		
+			MongoClient mongo = getMongoClient();
 			notesRepository = new MongoNotesRepository(mongo);
 		}
 
